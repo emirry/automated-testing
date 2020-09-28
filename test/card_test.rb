@@ -22,10 +22,12 @@ describe Card do
   end
 
   describe "Testing to_s" do
-
     it "to_s returns a readable String value logically for values 2-10" do
       # Test to ensure that to_s works for cards values 2-10
       # for example:  "2 of diamonds"
+      card = Card.new(5, :hearts)
+
+      expect(card.to_s).must_equal "5 of hearts"
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
@@ -34,24 +36,38 @@ describe Card do
       # The current implementation of to_s does not address this feature
       # Write the test, see it fail, then modify to_s to make it pass!
       # (Consider writing a helper method!)
-      #
       # For reference:
       #  1: Ace
       #  11: Jack
       #  12: Queen
       #  13: King
+      face_cards = {
+          1 => 'Ace',
+          11 => 'Jack',
+          12 => 'Queen',
+          13 => 'King'
+      }
+
+      face_cards.each do |number, face_value|
+        card = Card.new(11, :spades)
+
+        expect(card.to_s).must_equal "Jack of spades"
+      end
     end
   end
 
   describe "Reader methods" do
-
     it "Can retrieve the value of the card using a `.value`." do
       # ensure that `.value works as expected`
+      card = Card.new(3, :spades)
+
+      expect(card.value).must_equal value
+
     end
-
+#
     it "Can retrieve the value of the card using a `.suit`." do
-      # ensure that `.suit works as expected returning the symbol of the suit`
-
+#       # ensure that `.suit works as expected returning the symbol of the suit`
+#
     end
   end
 
