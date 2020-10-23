@@ -1,4 +1,3 @@
-
 # deck.rb
 
 require_relative 'card'
@@ -16,10 +15,11 @@ class Deck
   end
 
   def draw
-    # returns a card
+    card = @cards.pop
+    return card
   end
 
   def shuffle
-    # shuffles the deck
+     @cards.shuffle!
   end
 end

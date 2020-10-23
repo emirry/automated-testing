@@ -13,12 +13,27 @@ describe Deck do
       end
     end
 
+  describe "test that draw removes cards from the deck and returns a hand" do
+    it "draws and returns a card" do
+      deck = Deck.new
 
-  # describe "test that draw removes cards from the deck and returns a hand" do
-  #
-  # end
-  #
-  # describe "test that count returns the hand back into the deck" do
-  #
-  # end
+      drawn_card = deck.draw
+
+      expect(deck.cards.length).must_equal 51
+      expect(drawn_card).must_be_instance_of Card
+    end
+
+  end
+
+  describe "test that count returns the hand back into the deck" do
+    it "shuffles the deck" do
+      deck = Deck.new
+      first_card = deck.cards.first
+
+      deck.shuffle
+
+      expect(deck.cards.first).wont_equal first_card
+    end
+
+  end
 end
