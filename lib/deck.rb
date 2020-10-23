@@ -22,4 +22,9 @@ class Deck
   def shuffle
      @cards.shuffle!
   end
+
+  def count
+    @cards.count
+  end
+
 end

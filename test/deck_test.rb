@@ -22,7 +22,6 @@ describe Deck do
       expect(deck.cards.length).must_equal 51
       expect(drawn_card).must_be_instance_of Card
     end
-
   end
 
   describe "test that count returns the hand back into the deck" do
@@ -35,5 +34,20 @@ describe Deck do
       expect(deck.cards.first).wont_equal first_card
     end
 
+    it "counts 52 cards" do
+      deck = Deck.new
+
+      deck.count
+
+      expect(deck.cards.count).must_equal 52
+    end
+
+    it "counts 51 cards in the deck" do
+    deck = Deck.new
+
+    deck.draw
+
+    expect(deck.cards.count).must_equal 51
+    end
   end
 end
